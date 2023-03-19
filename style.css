@@ -1,0 +1,249 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat;
+}
+:root{
+    --bodyBackground:black;
+    --clockBackground: rgb(12, 12, 12);
+    --hoursColor:rgb(0, 205, 48);
+    --numberColor:white;
+    --clockBorder:rgb(21, 21, 21);
+}
+body{
+    background-color: var(--bodyBackground);
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+}
+.section-1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    flex-direction: column;
+    /* overflow-x: hidden; */
+}
+.tabs{
+    width: 500px;
+    height: 36px;
+    border-bottom: 2px solid var(--clockBorder);
+    display: flex;
+    align-items: last;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+}
+.btn{
+    background-color: transparent;
+    border: none;
+    color: var(--numberColor);
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+.active{
+    border-bottom: 2px solid var(--hoursColor);
+}
+.time-section{
+    width: 500px;
+    height: 50px;
+    border-bottom: 2px solid var(--clockBorder);
+    display: flex;
+    align-items: last;
+    justify-content: center;
+    color: white;
+}
+.time-section span{
+    font-size: 3rem;
+    font-weight: 700;
+}
+.clock{
+    position: relative;
+    top:20px;
+    width: 350px;
+    height: 350px;
+    background-color: var(--clockBackground);
+    border-radius: 50%;
+    border: 2px solid var(--clockBorder);
+}
+.number{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--numberColor);
+    background-color: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.hours-hand{
+    position: absolute;
+    width: 112px;
+    height: 7px;
+    background-color: var(--hoursColor);
+    top: 171.5px;
+    left:63px;
+    border-radius: 20px;
+    transform: rotate(0deg);
+    transform-origin: right;
+    transition-property: all;
+    transition-duration: 0.5s;
+    /* transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); */
+}
+.hours-hand::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    top:-6px;
+    left:0;
+    background-color: var(--clockBackground);
+    transform: rotate(-1.5deg);
+    transform-origin: right;
+}
+.hours-hand::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    bottom:-6px;
+    left:0;
+    background-color: var(--clockBackground);
+    transform: rotate(1.5deg);
+    transform-origin: right;
+}
+.special{
+    font-size: 4rem;
+    font-weight: 700;
+    font-style: italic;
+}
+.special-min{
+    font-size: 2rem;
+    font-weight: 700;
+    font-style: italic;
+}
+.one{
+    top:22px;
+    right: 78px;
+}
+.two{
+    top:77px;
+    right: 21px;
+}
+.three{
+    top:155px;
+    right:10px;
+}
+.four{
+    bottom: 77px;
+    right: 21px;
+}
+.five{
+    bottom: 22px;
+    right: 78px;
+}
+.six{
+    bottom: 10px;
+    left:155px;
+}
+.seven{
+    bottom: 22px;
+    left:78px;
+}
+.eight{
+    bottom: 77px;
+    left: 21px;
+}
+.nine{
+    top:155px;
+    left:0;   
+}
+.ten{
+    top:77px;
+    left:21px;
+}
+.eleven{
+    top: 22px;
+    left:78px;
+}
+.twelve{
+    top:10px;
+    left:155px;
+}
+.hours{
+    display: flex;
+}
+.minutes{
+    display: none;
+}
+
+@media (max-width:576px){
+    .section-1{
+        margin-top: 50px;
+        width: 576px;
+        height: 576px;
+        overflow-x: hidden;
+    }
+}
+@media (max-width:380px) {
+     .clock{
+        width: 320px;
+        height: 320px;
+     }
+     .one{
+        top:18px;
+        right:68px;
+     }
+     .two{
+        top: 69px;
+        right:18px;
+     }
+     .three{
+        top:140px;
+        right: 10px;
+     }
+     .four{
+        bottom: 69px;
+        right: 18px;
+     }
+     .five{
+        bottom: 18px;
+        right:68px;
+     }
+     .six{
+        bottom: 10px;
+        left:140px
+     }
+     .seven{
+        bottom: 18px;
+        left:68px;
+     }
+     .eight{
+        bottom: 69px;
+        left:18px;
+     }
+     .nine{
+        left:10px;
+        top:140px;
+     }
+     .ten{
+        top:69px;
+        left:18px;
+     }
+     .eleven{
+        top:18px;
+        left:68px;
+     }
+     .twelve{
+        left:140px;
+        top:10px;
+     }
+     .hours-hand{
+        width:97px;
+        left:63px;
+        top:156.5px;
+     }   
+}
